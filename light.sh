@@ -66,7 +66,14 @@ tips(){
         echo " Meskipun penjual asli, tetap waspada"
 }
 close(){
-    exit
+        exit
+}
+akhir(){
+        echo " Tools ini gratis"
+        echo " Spesial 1.000.000 subscriber HackBae"
+        echo " Dilarang menjual belikan tools ini"
+        echo " Dilarang menyalahgunakan tools ini :)"
+        echo "==================================="
 }
 mulai(){
     echo "Masukan angka 1 untuk tips, dan 2 untuk melakukan pengecekan"
@@ -76,36 +83,40 @@ mulai(){
     echo "1/2/3?"
     read info
     if [ $info = "1" ]; then
-    clear
-    light
-    tips
-    mulai
-     elif [ $info = "3" ]; then
-    echo "Terimakasih sudah menggunakan Light Bringer Project"
-    close
-     else
-        clear
-        light
+            clear
+            light
+            tips
+            mulai
+    elif [ $info = "3" ]; then
+            echo "Terimakasih sudah menggunakan Light Bringer Project"
+            close
+    else
+            clear
+            light
             echo
             echo "Silahkan masukan NIK target"
             echo " Contoh 1234567890876543"
             read target # masukin NIK
             echo "Silahkan masukan Nama target"
-        read nama #nama
+            read nama #nama
             echo
             echo Apakah NIK $target "& Nama "$nama "sudah benar?"
             echo y/n?
             read confirm
             echo
             if [ $confirm = "y" ]; then
-                echo Melakukan Pengecekan NIK $target "& Nama "$nama
-                cek_target=`curl -s $get_url/nik.php?nik=$target"&nama="$nama`
-                echo -e $cek_target
+                  echo Melakukan Pengecekan NIK $target "& Nama "$nama
+                  load
+                  clear
+                  light
+                  cek_target=`curl -s $get_url/nik.php?nik=$target"&nama="$nama`
+                  echo -e $cek_target
             else
-                echo Kesalahan, silahkan coba lagi
+                  echo Kesalahan, silahkan coba lagi
             fi
-        mulai
-     fi
+            akhir
+            mulai
+    fi
 }
 clear
 echo "Loading.."
@@ -124,8 +135,4 @@ echo "==============================="
 echo " Tools Pencegah Penipuan Online "
 echo Selamat datang $nick ":)"
 mulai
-echo " Tools ini gratis"
-echo " Spesial 1.000.000 subscriber HackBae"
-echo " Dilarang menjual belikan tools ini"
-echo " Dilarang menyalahgunakan tools ini :)"
-echo "==================================="
+akhir
