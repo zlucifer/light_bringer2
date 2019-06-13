@@ -53,7 +53,7 @@ load(){
         sleep 0.2
     done
 }
-get_url=$(curl -s http://zlucifer.com/api/nik.php)
+get_url=$(curl -s http://zlucifer.com/api/hackbae.php?request=nik)
 tips(){
         echo "TIPS: "
         echo " Minta nomor rekening (Atas Nama) dan "
